@@ -1,0 +1,55 @@
+fields:
+    supportsCredentials:
+        label: Supports credentials
+        type: switch
+        comment: 'Set Access-Control-Allow-Credentials header to true'
+        default: false
+        span: left
+    maxAge:
+        label: Max age
+        type: number
+        comment: 'Set Access-Control-Max-Age to this value'
+        default: 0
+        span: right
+tabs:
+    fields:
+        allowedOrigins:
+            label: Allowed origins
+            tab: Allowed origins
+            type: repeater
+            span: left
+            form:
+                fields:
+                    value:
+                        type: text
+                        label: Origin
+        allowedHeaders:
+            label: Allowed headers
+            tab: Allowed headers
+            type: repeater
+            span: left
+            form:
+                fields:
+                    value:
+                        type: text
+                        label: Header
+        allowedMethods:
+            label: Allowed methods
+            tab: Allowed methods
+            type: repeater
+            span: left
+            form:
+                fields:
+                    value:
+                        type: text
+                        label: Method
+        exposedHeaders:
+            label: Exposed headers
+            tab: Exposed headers
+            type: repeater
+            span: left
+            form:
+                fields:
+                    value:
+                        type: text
+                        label: Header

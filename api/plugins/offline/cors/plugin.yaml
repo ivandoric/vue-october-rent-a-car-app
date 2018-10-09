@@ -1,0 +1,6 @@
+plugin:
+    name: 'offline.cors::lang.plugin.name'
+    description: 'offline.cors::lang.plugin.description'
+    author: 'OFFLINE GmbH'
+    icon: oc-icon-code
+    homepage: ''

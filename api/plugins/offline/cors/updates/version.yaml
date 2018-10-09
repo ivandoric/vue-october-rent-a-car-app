@@ -1,0 +1,8 @@
+1.0.1:
+    - Initial release.
+1.0.2:
+    - Fixed backend settings label (thanks to LukeTowers)
+1.0.3:
+    - Added support for filesystem configuration file / Added plugin to Packagist (https://packagist.org/packages/offline/oc-cors-plugin)
+1.0.4:
+    - Fixed minor bug when running the plugin without custom settings

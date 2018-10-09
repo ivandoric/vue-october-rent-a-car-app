@@ -1,0 +1,11 @@
+plugin:
+    name: 'watchlearn.vuerentacar::lang.plugin.name'
+    description: 'watchlearn.vuerentacar::lang.plugin.description'
+    author: WatchLEarn
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Vehicles
+        url: watchlearn/vuerentacar/vehicles
+        icon: icon-car

@@ -1,0 +1,10 @@
+name: Vehicles
+form: $/watchlearn/vuerentacar/models/vehicle/fields.yaml
+modelClass: Watchlearn\Vuerentacar\Models\Vehicle
+defaultRedirect: watchlearn/vuerentacar/vehicles
+create:
+    redirect: 'watchlearn/vuerentacar/vehicles/update/:id'
+    redirectClose: watchlearn/vuerentacar/vehicles
+update:
+    redirect: watchlearn/vuerentacar/vehicles
+    redirectClose: watchlearn/vuerentacar/vehicles
