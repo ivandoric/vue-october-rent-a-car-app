@@ -9,3 +9,8 @@ navigation:
         label: Vehicles
         url: watchlearn/vuerentacar/vehicles
         icon: icon-car
+        sideMenu:
+            side-menu-item:
+                label: Locations
+                url: watchlearn/vuerentacar/locations
+                icon: icon-home

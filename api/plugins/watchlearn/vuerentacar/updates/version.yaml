@@ -3,3 +3,18 @@
 1.0.2:
     - 'Created table watchlearn_vuerentacar_vehicles'
     - builder_table_create_watchlearn_vuerentacar_vehicles.php
+1.0.3:
+    - 'Created table watchlearn_vuerentacar_'
+    - builder_table_create_watchlearn_vuerentacar_.php
+1.0.4:
+    - 'Drop table watchlearn_vuerentacar_'
+    - builder_table_delete_watchlearn_vuerentacar_.php
+1.0.5:
+    - 'Created table watchlearn_vuerentacar_locations'
+    - builder_table_create_watchlearn_vuerentacar_locations.php
+1.0.6:
+    - 'Drop table watchlearn_vuerentacar_locations'
+    - builder_table_delete_watchlearn_vuerentacar_locations.php
+1.0.7:
+    - 'Created table watchlearn_vuerentacar_locations'
+    - builder_table_create_watchlearn_vuerentacar_locations_2.php

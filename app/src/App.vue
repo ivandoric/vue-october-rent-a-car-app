@@ -11,6 +11,10 @@
     export default {
         components: {
             NavBar
+        },
+
+        mounted() {
+            this.$store.dispatch('getLocations')
         }
     }
 </script>

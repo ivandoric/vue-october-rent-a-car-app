@@ -1,0 +1,10 @@
+name: Locations
+form: $/watchlearn/vuerentacar/models/location/fields.yaml
+modelClass: Watchlearn\Vuerentacar\Models\Location
+defaultRedirect: watchlearn/vuerentacar/locations
+create:
+    redirect: 'watchlearn/vuerentacar/locations/update/:id'
+    redirectClose: watchlearn/vuerentacar/locations
+update:
+    redirect: watchlearn/vuerentacar/locations
+    redirectClose: watchlearn/vuerentacar/locations

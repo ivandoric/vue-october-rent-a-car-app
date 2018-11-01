@@ -1,19 +1,6 @@
 <template>
     <div class="ReservationForm p-5 bg-white w-1/2">
-        <input-select :label="'Pickup Location'" :options="[
-            {
-                label: 'New York',
-                value: 1
-            },
-            {
-                label: 'Paris',
-                value: 2
-            },
-            {
-                label: 'Peckham',
-                value: 2
-            }
-        ]"/>
+        <input-select :label="'Pickup Location'" :options="locations"/>
     </div>
 </template>
 
@@ -23,6 +10,12 @@
     export default {
         components: {
             InputSelect
+        },
+
+        computed: {
+            locations() {
+                return this.$store.getters.allLocations
+            }
         }
     }
 </script>
