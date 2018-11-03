@@ -4,7 +4,10 @@
             {{ label }}
         </label>
         <div class="relative">
-            <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-state">
+            <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-state"
+                @input="$emit('onSelect', $event.target.value)"
+            >
+                <option value="null">-- Choose Location --</option>
                 <option v-for="(option, index) in options" :key="index" :value="option.value">
                     {{ option.label }}
                 </option>

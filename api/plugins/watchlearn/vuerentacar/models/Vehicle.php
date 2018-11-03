@@ -8,7 +8,17 @@ use Model;
 class Vehicle extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
+    /* Relations */
+
+    public $belongsToMany = [
+        'locations' => [
+            'Watchlearn\Vuerentacar\Models\Location',
+            'table' => 'watchlearn_vuerentacar_vehicles_locations',
+            'order' => 'title'
+        ]
+    ];
+
     /**
      * @var array Validation rules
      */

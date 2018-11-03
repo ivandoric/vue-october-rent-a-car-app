@@ -15,3 +15,9 @@ fields:
         size: large
         span: full
         type: richeditor
+    locations:
+        label: Locations
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
