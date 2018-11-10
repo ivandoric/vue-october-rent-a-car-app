@@ -1,6 +1,6 @@
 <template>
     <div class="ReservationForm p-5 bg-white w-1/2">
-        <input-select :label="'Pickup Location'" :options="locations" @onSelect="filterVehicles"/>
+        <input-select :label="'Pickup Location'" :options="locations" @onSelect="filterVehiclesOnApi"/>
         <vehicle-list filtered />
     </div>
 </template>
@@ -23,6 +23,9 @@
         methods: {
             filterVehicles(value) {
                 this.$store.dispatch('filterVehicles', +value)
+            },
+            filterVehiclesOnApi(value) {
+                this.$store.dispatch('filterOnApi', +value)
             }
         }
     }

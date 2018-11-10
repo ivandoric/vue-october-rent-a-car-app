@@ -8,6 +8,14 @@ Route::get('vehicles', function() {
     return $vehicles;
 });
 
+Route::get('vehicles/filter/{id}', function($id) {
+    $vehicles = Vehicle::whereHas('locations', function($query) use ($id){
+        $query->where('id', '=', $id);
+    })->get();
+
+    return $vehicles;
+});
+
 Route::get('locations', function() {
     $locations = Location::all();
     return $locations;

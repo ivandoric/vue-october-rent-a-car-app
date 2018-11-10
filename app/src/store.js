@@ -49,6 +49,11 @@ export default new Vuex.Store({
             })
 
             commit('SET_FILTERED', filtered)
-        }
+        },
+        filterOnApi({ commit }, value) {
+            axios.get('http://api.vue-rentacar.localhost/vehicles/filter/' + value).then(response => {
+                commit('SET_FILTERED', response.data)
+            })
+        },
     }
 })
