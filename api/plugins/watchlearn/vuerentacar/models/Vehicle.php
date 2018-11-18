@@ -19,6 +19,10 @@ class Vehicle extends Model
         ]
     ];
 
+    public $attachOne = [
+        'image' => 'System\Models\File'
+    ];
+
     /**
      * @var array Validation rules
      */

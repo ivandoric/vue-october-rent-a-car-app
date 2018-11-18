@@ -21,3 +21,16 @@ fields:
         descriptionFrom: description
         span: auto
         type: relation
+    price:
+        label: 'Price by day'
+        span: auto
+        type: text
+    image:
+        label: 'Car image'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

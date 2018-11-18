@@ -1,7 +1,6 @@
 <template>
     <div class="ReservationForm p-5 bg-white w-1/2">
-        <input-select :label="'Pickup Location'" :options="locations" @onSelect="filterVehiclesOnApi"/>
-        <vehicle-list filtered />
+        <input-select :label="'Pickup Location'" :options="locations" @onSelect="filterVehicles"/>
     </div>
 </template>
 
