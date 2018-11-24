@@ -4,3 +4,6 @@ columns:
         type: text
         searchable: true
         sortable: true
+    available:
+        label: Available
+        type: switch

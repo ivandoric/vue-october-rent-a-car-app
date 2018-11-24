@@ -61,6 +61,7 @@ let colors = {
     'orange': '#de751f',
     'yellow': '#f2d024',
     'pink': '#eb5286',
+    'green': '#09ad03'
 }
 
 module.exports = {

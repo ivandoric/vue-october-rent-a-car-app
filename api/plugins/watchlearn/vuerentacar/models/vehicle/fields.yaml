@@ -34,3 +34,8 @@ fields:
             extension: auto
         span: auto
         type: fileupload
+    available:
+        label: Available
+        span: auto
+        default: 1
+        type: switch
