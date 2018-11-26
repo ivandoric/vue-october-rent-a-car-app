@@ -8,12 +8,14 @@ export default new Vuex.Store({
     state: {
         vehicles: [],
         locations: [],
-        filteredVehicles: []
+        filteredVehicles: [],
+        currentVehicle: {}
     },
     getters: {
         allVehicles: state => state.vehicles,
         allLocations: state => state.locations,
-        filterdVehicles: state => state.filteredVehicles
+        filterdVehicles: state => state.filteredVehicles,
+        currentVehicle: state => state.currentVehicle
     },
     mutations: {
         GET_VEHICLES: (state, vehicles) => {
@@ -26,6 +28,10 @@ export default new Vuex.Store({
 
         SET_FILTERED: (state, vehicles) => {
             state.filteredVehicles = vehicles
+        },
+
+        SET_VEHICLE: (state, vehicle) => {
+            state.currentVehicle = vehicle
         }
     },
     actions: {
@@ -38,6 +44,10 @@ export default new Vuex.Store({
             axios.get('http://api.vue-rentacar.localhost/locations/list').then(response => {
                 commit('GET_LOCATIONS', response.data)
             })
+        },
+        getVehicle({commit, state}, slug) {
+            const vehicle = this.state.vehicles.find(vehicle => vehicle.slug === slug)
+            commit('SET_VEHICLE', vehicle)
         },
         filterVehicles({commit, state}, value) {
             const filtered = state.vehicles.filter( vehicle => {

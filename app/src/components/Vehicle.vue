@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="flex justify-between border-t items-center mt-2 pt-4">
-            <a href="#">More Details</a>
+            <router-link :to="{ name: 'vehicleDetail', params: { slug: slug } }">More details</router-link>
             <availability-badge :available="available" />
         </div>
     </div>
@@ -32,6 +32,10 @@
                 required: true
             },
             description: {
+                type: String,
+                default: ''
+            },
+            slug: {
                 type: String,
                 default: ''
             },

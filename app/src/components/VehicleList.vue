@@ -8,6 +8,7 @@
             :image="vehicle.image.path"
             :price="vehicle.price"
             :available="vehicle.available"
+            :slug="vehicle.slug"
         />
     </div>
 </template>
