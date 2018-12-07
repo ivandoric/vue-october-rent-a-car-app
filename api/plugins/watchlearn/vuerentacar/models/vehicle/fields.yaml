@@ -39,3 +39,9 @@ fields:
         span: auto
         default: 1
         type: switch
+    dates:
+        label: Reserved
+        nameFrom: pickup
+        descriptionFrom: description
+        span: auto
+        type: relation

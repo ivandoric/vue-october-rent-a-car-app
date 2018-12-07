@@ -1,0 +1,10 @@
+name: Dates
+form: $/watchlearn/vuerentacar/models/date/fields.yaml
+modelClass: Watchlearn\Vuerentacar\Models\Date
+defaultRedirect: watchlearn/vuerentacar/dates
+create:
+    redirect: 'watchlearn/vuerentacar/dates/update/:id'
+    redirectClose: watchlearn/vuerentacar/dates
+update:
+    redirect: watchlearn/vuerentacar/dates
+    redirectClose: watchlearn/vuerentacar/dates

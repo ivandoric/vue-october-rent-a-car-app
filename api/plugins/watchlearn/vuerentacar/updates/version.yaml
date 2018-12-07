@@ -33,3 +33,9 @@
 1.0.12:
     - 'Updated table watchlearn_vuerentacar_vehicles'
     - builder_table_update_watchlearn_vuerentacar_vehicles_4.php
+1.0.13:
+    - 'Created table watchlearn_vuerentacar_dates'
+    - builder_table_create_watchlearn_vuerentacar_dates.php
+1.0.14:
+    - 'Created table watchlearn_vuerentacar_vehicles_dates'
+    - builder_table_create_watchlearn_vuerentacar_vehicles_dates.php

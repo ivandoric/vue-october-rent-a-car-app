@@ -4,7 +4,7 @@ use Watchlearn\Vuerentacar\Models\Vehicle;
 use Watchlearn\Vuerentacar\Models\Location;
 
 Route::get('vehicles', function() {
-    $vehicles = Vehicle::with(['image','locations'])->get();
+    $vehicles = Vehicle::with(['image','locations', 'dates'])->get();
     return $vehicles;
 });
 

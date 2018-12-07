@@ -14,3 +14,7 @@ navigation:
                 label: Locations
                 url: watchlearn/vuerentacar/locations
                 icon: icon-home
+            side-menu-item2:
+                label: Dates
+                url: watchlearn/vuerentacar/dates
+                icon: icon-calendar

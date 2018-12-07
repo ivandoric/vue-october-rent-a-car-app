@@ -1,0 +1,12 @@
+list: $/watchlearn/vuerentacar/models/date/columns.yaml
+modelClass: Watchlearn\Vuerentacar\Models\Date
+title: Dates
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'watchlearn/vuerentacar/dates/update/:id'
