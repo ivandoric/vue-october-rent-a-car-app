@@ -9,7 +9,10 @@ export default new Vuex.Store({
         vehicles: [],
         locations: [],
         filteredVehicles: [],
-        currentVehicle: {}
+        currentVehicle: {},
+        location: null,
+        pickup: '',
+        dropoff: ''
     },
     getters: {
         allVehicles: state => state.vehicles,
@@ -32,6 +35,15 @@ export default new Vuex.Store({
 
         SET_VEHICLE: (state, vehicle) => {
             state.currentVehicle = vehicle
+        },
+        SET_LOCATION: (state, location) => {
+            state.location = location
+        },
+        SET_PICKUP: (state, date) => {
+            state.pickup = date
+        },
+        SET_DROPOFF: (state, date) => {
+            state.dropoff = date
         }
     },
     actions: {
@@ -49,21 +61,57 @@ export default new Vuex.Store({
             const vehicle = this.state.vehicles.find(vehicle => vehicle.slug === slug)
             commit('SET_VEHICLE', vehicle)
         },
-        filterVehicles({commit, state}, value) {
+        filterVehicles({commit, state}) {
             const filtered = state.vehicles.filter( vehicle => {
                 let foundLocations = vehicle.locations.findIndex( location => {
-                    return location.id === value
+                    return location.id === this.state.location
                 })
 
                 return foundLocations !== -1
             })
 
-            commit('SET_FILTERED', filtered)
+            const filteredVehicles = []
+
+            filtered.forEach(vehicle => {
+                if(vehicle.dates.length > 0) {
+                    const overlaps = []
+
+                    vehicle.dates.forEach(date => {
+                        const startDate1 = new Date(date.pickup)
+                        const endDate1 = new Date(date.drop_off)
+                        const startDate2 = new Date(this.state.pickup)
+                        const endDate2 = new Date(this.state.dropoff)
+
+                        overlaps.push((startDate1 < endDate2) && (startDate2 < endDate1))
+                    })
+
+                    if(!overlaps.includes(true)) {
+                        filteredVehicles.push(vehicle)
+                    }
+
+                    return
+                }
+
+                filteredVehicles.push(vehicle)
+            })
+
+            commit('SET_FILTERED', filteredVehicles)
+        },
+        setLocation({ commit, state }, value) {
+            commit('SET_LOCATION', value)
         },
         filterOnApi({ commit }, value) {
             axios.get('http://api.vue-rentacar.localhost/vehicles/filter/' + value).then(response => {
                 commit('SET_FILTERED', response.data)
             })
         },
+        setDates({commit, state}, date) {
+            if(date.type === 'pickup') {
+                commit('SET_PICKUP', date.value)
+                return
+            }
+
+            commit('SET_DROPOFF', date.value)
+        }
     }
 })
