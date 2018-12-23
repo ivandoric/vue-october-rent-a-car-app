@@ -18,7 +18,9 @@ export default new Vuex.Store({
         allVehicles: state => state.vehicles,
         allLocations: state => state.locations,
         filterdVehicles: state => state.filteredVehicles,
-        currentVehicle: state => state.currentVehicle
+        currentVehicle: state => state.currentVehicle,
+        pickupDate: state => state.pickup,
+        dropOffDate: state => state.dropoff
     },
     mutations: {
         GET_VEHICLES: (state, vehicles) => {

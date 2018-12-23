@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "eslint-config-bubblelint": "^1.1.1",
-    "luxon": "^1.8.2",
+    "luxon": "^1.8.3",
     "tailwindcss": "^0.6.6",
     "vue": "^2.5.17",
     "vue-datetime": "^1.0.0-beta.8",
