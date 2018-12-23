@@ -56,6 +56,15 @@
         },
         beforeMount() {
             this.$store.dispatch('getVehicle', this.$route.params.slug)
+
+            if(this.$store.getters.pickupDate === '') {
+                this.$store.dispatch('setDates', {value: localStorage.getItem('pickup'), type: 'pickup'})
+            }
+
+            if(this.$store.getters.dropOffDate === '') {
+                this.$store.dispatch('setDates', {value: localStorage.getItem('dropoff'), type: 'dropoff'})
+            }
+
             console.log(this.dates)
         }
     }

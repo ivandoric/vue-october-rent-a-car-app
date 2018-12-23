@@ -110,10 +110,12 @@ export default new Vuex.Store({
         setDates({commit, state}, date) {
             if(date.type === 'pickup') {
                 commit('SET_PICKUP', date.value)
+                localStorage.setItem('pickup', date.value)
                 return
             }
 
             commit('SET_DROPOFF', date.value)
+            localStorage.setItem('dropoff', date.value)
         }
     }
 })
