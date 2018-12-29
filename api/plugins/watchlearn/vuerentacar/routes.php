@@ -6,16 +6,31 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 Route::post('save-user', function(Request $request) {
-    $user = new User;
+    $user = User::where('email', '=', $request->email)->first();
 
-    $user->name = $request->name;
-    $user->surname = $request->surname;
-    $user->email = $request->email;
-    $user->username = $request->email;
-    $user->password = bcrypt($request->password);
-    $user->save();
+    if ($user === null) {
+        $user = new User;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->email = $request->email;
+        $user->username = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
 
-    return 'Done!';
+        $data = [
+            "status" => "ok",
+            "userId" => $user->id
+        ];
+
+        return response()->json($data);
+    } else {
+        $data = [
+            "status" => "failed",
+            "message" => "This user already exists!"
+        ];
+
+        return response()->json($data);
+    }
 });
 
 Route::get('vehicles', function() {

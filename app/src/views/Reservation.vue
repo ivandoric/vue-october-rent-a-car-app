@@ -38,6 +38,10 @@
 
                     <button class="bg-green text-white font-bold py-3 px-4 rounded ml-4 inline-block"> Register </button>
                 </form>
+
+                <div class="bg-orange-lightest border-l-4 border-orange text-orange-dark p-4 mt-4" role="alert" v-if="registerError">
+                    <p>{{ registerError }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -51,6 +55,11 @@
                 surname: '',
                 password: '',
                 email: ''
+            }
+        },
+        computed: {
+            registerError() {
+                return this.$store.getters.registerError
             }
         },
         methods: {
