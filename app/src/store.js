@@ -116,6 +116,12 @@ export default new Vuex.Store({
 
             commit('SET_DROPOFF', date.value)
             localStorage.setItem('dropoff', date.value)
+        },
+
+        saveUser({commit, state}, user) {
+            axios.post('http://api.vue-rentacar.localhost/save-user', user).then(response => {
+                console.log(response)
+            })
         }
     }
 })

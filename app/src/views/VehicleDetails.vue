@@ -20,14 +20,18 @@
 
                 <div class="CarPrices w-1/2 p-8 border-l">
 
-                    <ul>
+                    <ul class="mb-4">
                         <li><strong>By Day:</strong> ${{vehicle.price}} </li>
                         <li><strong>Reservation:</strong> {{dates.start}} - {{ dates.end }} </li>
                         <li><strong>Number of days:</strong> {{dates.daysBetween }} </li>
                         <li><strong>Price:</strong> ${{dates.price }} </li>
                     </ul>
 
-
+                    <router-link
+                            class="bg-green text-white font-bold py-3 px-4 rounded ml-4 inline-block"
+                            :to="{ name: 'Reservation' }">
+                        Make Reservation
+                    </router-link>
                 </div>
             </div>
         </div>
