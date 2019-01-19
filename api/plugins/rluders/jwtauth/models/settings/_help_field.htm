@@ -1,0 +1,11 @@
+<div class="callout callout-info no-subheader">
+    <?php if (isset($field->config['title'])): ?>
+    <div class="header">
+        <i class="icon-info"></i>
+        <h3><?= e(trans($field->config['title'])); ?></h3>
+    </div>
+    <?php endif; ?>
+    <div class="content">
+        <?= trans($field->config['content']) ?>
+    </div>
+</div>

@@ -2,36 +2,8 @@
 
 use Watchlearn\Vuerentacar\Models\Vehicle;
 use Watchlearn\Vuerentacar\Models\Location;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Http\Request;
-
-Route::post('save-user', function(Request $request) {
-    $user = User::where('email', '=', $request->email)->first();
-
-    if ($user === null) {
-        $user = new User;
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->email = $request->email;
-        $user->username = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
-
-        $data = [
-            "status" => "ok",
-            "userId" => $user->id
-        ];
-
-        return response()->json($data);
-    } else {
-        $data = [
-            "status" => "failed",
-            "message" => "This user already exists!"
-        ];
-
-        return response()->json($data);
-    }
-});
+// use Illuminate\Foundation\Auth\User;
+// use Illuminate\Http\Request;
 
 Route::get('vehicles', function() {
     $vehicles = Vehicle::with(['image','locations', 'dates'])->get();

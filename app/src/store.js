@@ -12,8 +12,7 @@ export default new Vuex.Store({
         currentVehicle: {},
         location: null,
         pickup: '',
-        dropoff: '',
-        registerError: ''
+        dropoff: ''
     },
     getters: {
         allVehicles: state => state.vehicles,
@@ -21,8 +20,7 @@ export default new Vuex.Store({
         filterdVehicles: state => state.filteredVehicles,
         currentVehicle: state => state.currentVehicle,
         pickupDate: state => state.pickup,
-        dropOffDate: state => state.dropoff,
-        registerError: state => state.registerError
+        dropOffDate: state => state.dropoff
     },
     mutations: {
         GET_VEHICLES: (state, vehicles) => {
@@ -48,9 +46,6 @@ export default new Vuex.Store({
         },
         SET_DROPOFF: (state, date) => {
             state.dropoff = date
-        },
-        SET_REGISTER_ERROR: (state, error) => {
-            state.registerError = error
         }
     },
     actions: {
@@ -123,15 +118,15 @@ export default new Vuex.Store({
             localStorage.setItem('dropoff', date.value)
         },
 
-        saveUser({commit, state}, user) {
-            axios.post('http://api.vue-rentacar.localhost/save-user', user).then(response => {
+        registerUser({commit, state}, user) {
+            axios.post('http://api.vue-rentacar.localhost/api/auth/register', user).then(response => {
                 console.log(response)
+            })
+        },
 
-                if(response.data.status === 'ok') {
-                    // Do something
-                } else {
-                    commit('SET_REGISTER_ERROR', response.data.message)
-                }
+        loginUser({commit, state}, user) {
+            axios.post('http://api.vue-rentacar.localhost/api/auth/login', user).then(response => {
+                console.log(response)
             })
         }
     }

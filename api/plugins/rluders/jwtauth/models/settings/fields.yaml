@@ -1,0 +1,147 @@
+# ===================================
+#  Field Definitions
+# ===================================
+    
+fields:
+
+    algo:
+        span: left
+        label: rluders.jwtauth::lang.settings.fields.algo.label
+        comment: rluders.jwtauth::lang.settings.fields.algo.comment            
+        type: dropdown
+        options:
+            HS256: 'HS256'
+            HS384: 'HS384'
+            HS512: 'HS512'
+            RS256: 'RS256'
+            RS384: 'RS384'
+            RS512: 'RS512'
+            ES256: 'ES256'
+            ES384: 'ES384'
+            ES512: 'ES512'
+
+    secret:
+        span: left
+        label: rluders.jwtauth::lang.settings.fields.secret.label
+        comment: rluders.jwtauth::lang.settings.fields.secret.comment
+        trigger:
+            action: show
+            field: algo
+            condition: value[HS256][HS384][HS512]
+
+    keys_public:
+        span: left
+        label: rluders.jwtauth::lang.settings.fields.keys_public.label
+        comment: rluders.jwtauth::lang.settings.fields.keys_public.comment
+        trigger:
+            action: show
+            field: algo
+            condition: value[RS256][RS384][RS512][ES256][ES384][ES512]
+    
+    keys_private:
+        span: left
+        label: rluders.jwtauth::lang.settings.fields.keys_private.label
+        comment: rluders.jwtauth::lang.settings.fields.keys_private.comment
+        trigger:
+            action: show
+            field: algo
+            condition: value[RS256][RS384][RS512][ES256][ES384][ES512]
+
+    keys_passphrase:
+        span: left
+        label: rluders.jwtauth::lang.settings.fields.keys_passphrase.label
+        comment: rluders.jwtauth::lang.settings.fields.keys_passphrase.comment
+        trigger:
+            action: show
+            field: algo
+            condition: value[RS256][RS384][RS512][ES256][ES384][ES512]
+
+tabs:
+    fields:
+
+        # Extras
+
+        leeway:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.leeway.label
+            comment: rluders.jwtauth::lang.settings.fields.leeway.comment
+            type: number
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        ttl:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.ttl.label
+            comment: rluders.jwtauth::lang.settings.fields.ttl.comment
+            type: number
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        refresh_ttl:
+            span: right
+            label: rluders.jwtauth::lang.settings.fields.refresh_ttl.label
+            comment: rluders.jwtauth::lang.settings.fields.refresh_ttl.comment
+            type: number
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+        
+        required_claims:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.required_claims.label
+            comment: rluders.jwtauth::lang.settings.fields.required_claims.comment
+            type: taglist
+            separator: space
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        persistent_claims:
+            span: right
+            label: rluders.jwtauth::lang.settings.fields.persistent_claims.label
+            comment: rluders.jwtauth::lang.settings.fields.persistent_claims.comment
+            type: taglist
+            separator: space
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+        
+        lock_subject:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.lock_subject.label
+            comment: rluders.jwtauth::lang.settings.fields.lock_subject.comment
+            type: switch
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        decrypt_cookies:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.decrypt_cookies.label
+            comment: rluders.jwtauth::lang.settings.fields.decrypt_cookies.comment
+            type: switch
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        blacklist_enabled:
+            span: left
+            label: rluders.jwtauth::lang.settings.fields.blacklist_enabled.label
+            comment: rluders.jwtauth::lang.settings.fields.blacklist_enabled.comment
+            type: switch
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+
+        blacklist_grace_period:
+            span: right
+            label: rluders.jwtauth::lang.settings.fields.blacklist_grace_period.label
+            comment: rluders.jwtauth::lang.settings.fields.blacklist_grace_period.comment
+            type: number
+            tab: rluders.jwtauth::lang.settings.tabs.extras
+    
+        # URLs
+
+        help_urls:
+            title: rluders.jwtauth::lang.settings.fields.help_urls.title
+            content: rluders.jwtauth::lang.settings.fields.help_urls.content
+            type: partial
+            path: $/rluders/jwtauth/models/settings/_help_field.htm
+            tab: rluders.jwtauth::lang.settings.tabs.urls
+            
+
+        activation_url:
+            label: rluders.jwtauth::lang.settings.fields.activation_url.label
+            comment: rluders.jwtauth::lang.settings.fields.activation_url.comment
+            tab: rluders.jwtauth::lang.settings.tabs.urls
+
+        reset_password_url:
+            label: rluders.jwtauth::lang.settings.fields.reset_password_url.label
+            comment: rluders.jwtauth::lang.settings.fields.reset_password_url.comment
+            tab: rluders.jwtauth::lang.settings.tabs.urls

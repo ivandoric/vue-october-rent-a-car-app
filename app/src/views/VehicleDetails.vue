@@ -27,11 +27,10 @@
                         <li><strong>Price:</strong> ${{dates.price }} </li>
                     </ul>
 
+
                     <router-link
                             class="bg-green text-white font-bold py-3 px-4 rounded ml-4 inline-block"
-                            :to="{ name: 'Reservation' }">
-                        Make Reservation
-                    </router-link>
+                            :to="{ name: 'Reservation' }">Continue</router-link>
                 </div>
             </div>
         </div>
