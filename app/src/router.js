@@ -24,12 +24,17 @@ export default new Router({
         {
             path: '/vehicles/:slug',
             name: 'vehicleDetail',
-            component: () => import(/* webpackChunkName: "about" */ './views/VehicleDetails.vue')
+            component: () => import(/* webpackChunkName: "vehicledetail" */ './views/VehicleDetails.vue')
         },
         {
             path: '/reservation',
             name: 'Reservation',
             component: () => import(/* webpackChunkName: "reservation" */ './views/Reservation.vue')
+        },
+        {
+            path: '/confirmation',
+            name: 'Confirmation',
+            component: () => import(/* webpackChunkName: "confirmation" */ './views/Confirmation.vue')
         }
     ]
 })

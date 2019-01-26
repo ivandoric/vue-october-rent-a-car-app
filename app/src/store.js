@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from './router'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    plugins: [createPersistedState()],
     state: {
         vehicles: [],
         locations: [],
@@ -12,7 +15,9 @@ export default new Vuex.Store({
         currentVehicle: {},
         location: null,
         pickup: '',
-        dropoff: ''
+        dropoff: '',
+        user: {},
+        token: ''
     },
     getters: {
         allVehicles: state => state.vehicles,
@@ -20,7 +25,9 @@ export default new Vuex.Store({
         filterdVehicles: state => state.filteredVehicles,
         currentVehicle: state => state.currentVehicle,
         pickupDate: state => state.pickup,
-        dropOffDate: state => state.dropoff
+        dropOffDate: state => state.dropoff,
+        user: state => state.user,
+        token: state => state.token
     },
     mutations: {
         GET_VEHICLES: (state, vehicles) => {
@@ -46,6 +53,12 @@ export default new Vuex.Store({
         },
         SET_DROPOFF: (state, date) => {
             state.dropoff = date
+        },
+        SET_USER: (state, user) => {
+            state.user = user
+        },
+        SET_TOKEN: (state, token) => {
+            state.token = token
         }
     },
     actions: {
@@ -126,7 +139,14 @@ export default new Vuex.Store({
 
         loginUser({commit, state}, user) {
             axios.post('http://api.vue-rentacar.localhost/api/auth/login', user).then(response => {
-                console.log(response)
+
+                commit('SET_TOKEN', response.data.token)
+                commit('SET_USER', response.data.user)
+
+                router.push({name:'Confirmation'})
+
+            }).catch(error => {
+                console.log(error.response)
             })
         }
     }
