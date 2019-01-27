@@ -1,0 +1,23 @@
+fields:
+    pickup:
+        label: Pickup
+        mode: datetime
+        span: auto
+        type: datepicker
+    dropoff:
+        label: 'Drop Off'
+        mode: datetime
+        span: auto
+        type: datepicker
+    user:
+        label: User
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    vehicle:
+        label: Vehicle
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation

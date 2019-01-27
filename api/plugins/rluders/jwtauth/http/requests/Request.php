@@ -16,15 +16,14 @@ abstract class Request extends BaseRequest
     public function validate()
     {
         $validator = Validator::make($this->data(), $this->rules());
-        if ($validator->fails()) {
 
+        if ($validator->fails()) {
             return response()->json(
                 [
                     'error' => $validator->getMessageBag()
                 ],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
-
         }
 
         return true;
@@ -45,5 +44,5 @@ abstract class Request extends BaseRequest
      *
      * @return array
      */
-    abstract public function rules();   
+    abstract public function rules();
 }

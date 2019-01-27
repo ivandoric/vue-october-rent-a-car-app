@@ -9,6 +9,10 @@
                 <li>Pickup: <strong>{{ pickup.formatted }}</strong></li>
                 <li>Drop Off: <strong>{{ dropoff.formatted }}</strong></li>
             </ul>
+
+            <button class="bg-green text-white font-bold py-3 px-4 rounded inline-block" @click="makeReservation">
+                Make reservation
+            </button>
         </div>
     </div>
 </template>
@@ -35,6 +39,22 @@
                     original: this.$store.getters.dropOffDate,
                     formatted: DateTime.fromISO(this.$store.getters.dropOffDate).toFormat('dd/MM/yyyy')
                 }
+            }
+        },
+
+        methods: {
+            makeReservation() {
+                let pickup = DateTime.fromISO(this.pickup.original).toFormat('yyyy-MM-dd HH:mm:ss')
+                let dropoff = DateTime.fromISO(this.dropoff.original).toFormat('yyyy-MM-dd HH:mm:ss')
+
+
+                const reservationData = new URLSearchParams()
+                reservationData.append('user_id', this.user.id)
+                reservationData.append('vehicle_id', this.vehicle.id)
+                reservationData.append('pickup', pickup)
+                reservationData.append('dropoff', dropoff)
+
+                this.$store.dispatch('makeReservation', reservationData)
             }
         }
     }

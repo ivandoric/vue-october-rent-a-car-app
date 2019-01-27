@@ -1,0 +1,11 @@
+{
+    "name": "octobro/api",
+    "description": "Base API Plugin for OctoberCMS.",
+    "type": "october-plugin",
+    "keywords": ["october", "api"],
+    "require": {
+        "php": ">=7.0.0",
+        "league/fractal": "^0.17.0",
+        "barryvdh/laravel-cors": "^0.10"
+    }
+}

@@ -2,8 +2,9 @@
 
 use Watchlearn\Vuerentacar\Models\Vehicle;
 use Watchlearn\Vuerentacar\Models\Location;
-// use Illuminate\Foundation\Auth\User;
-// use Illuminate\Http\Request;
+use Watchlearn\Vuerentacar\Models\Reservation;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
 
 Route::get('vehicles', function() {
     $vehicles = Vehicle::with(['image','locations', 'dates'])->get();
@@ -17,6 +18,21 @@ Route::get('vehicles/filter/{id}', function($id) {
 
     return $vehicles;
 });
+
+
+Route::middleware(['jwt.auth'])->group(function () {
+    Route::post('create-reservation', function(Request $request) {
+        $reservation = new Reservation;
+        $reservation->pickup = $request->pickup;
+        $reservation->dropoff = $request->dropoff;
+        $reservation->user_id = $request->user_id;
+        $reservation->vehicle_id = $request->vehicle_id;
+        $reservation->save();
+        return response()->json('Reservation Created!');
+    });
+});
+
+
 
 Route::get('locations', function() {
     $locations = Location::all();

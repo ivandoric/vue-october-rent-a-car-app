@@ -31,8 +31,8 @@ class AuthServiceProvider extends AbstractServiceProvider
             function ($app) {
                 return new \RLuders\JWTAuth\Http\Requests\TokenRequest(input());
             }
-        );        
-        
+        );
+
         $this->app->bind(
             \RLuders\JWTAuth\Http\Requests\LoginRequest::class,
             function ($app) {
@@ -114,7 +114,7 @@ class AuthServiceProvider extends AbstractServiceProvider
                     'jwt.leeway',
                     'jwt.blacklist_grace_period'
                 ]
-            );            
+            );
             if ($isInteger) {
                 $value = (int)$value;
             }

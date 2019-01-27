@@ -18,3 +18,7 @@ navigation:
                 label: Dates
                 url: watchlearn/vuerentacar/dates
                 icon: icon-calendar
+            side-menu-item3:
+                label: Reservations
+                url: watchlearn/vuerentacar/reservations
+                icon: icon-ticket

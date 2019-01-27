@@ -23,7 +23,7 @@ class LoginRequest extends Request
     }
 
     /**
-     * Get login field configured by RainLab.User 
+     * Get login field configured by RainLab.User
      *
      * @return string
      */

@@ -753,7 +753,7 @@ class RelationController extends ControllerBehavior
             if ($this->viewMode == 'single') {
                 $config->showCheckboxes = false;
                 $config->recordOnClick = sprintf(
-                    "$.oc.relationBehavior.clickManageListRecord(:%s, '%s', '%s')",
+                    "$.oc.relationBehavior.clickManageListRecord(':%s', '%s', '%s')",
                     $this->relationModel->getKeyName(),
                     $this->relationGetId(),
                     $this->relationGetSessionKey()
@@ -764,7 +764,7 @@ class RelationController extends ControllerBehavior
             }
             elseif ($isPivot) {
                 $config->recordOnClick = sprintf(
-                    "$.oc.relationBehavior.clickManagePivotListRecord(:%s, '%s', '%s')",
+                    "$.oc.relationBehavior.clickManagePivotListRecord(':%s', '%s', '%s')",
                     $this->relationModel->getKeyName(),
                     $this->relationGetId(),
                     $this->relationGetSessionKey()
@@ -1032,7 +1032,7 @@ class RelationController extends ControllerBehavior
              * Has one relations will save as part of the add() call.
              */
             if ($this->deferredBinding || $this->relationType != 'hasOne') {
-                $newModel->save();
+                $newModel->save(null, $this->manageWidget->getSessionKey());
             }
 
             $this->relationObject->add($newModel, $sessionKey);

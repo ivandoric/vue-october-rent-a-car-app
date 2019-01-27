@@ -1,0 +1,10 @@
+name: Reservations
+form: $/watchlearn/vuerentacar/models/reservation/fields.yaml
+modelClass: Watchlearn\Vuerentacar\Models\Reservation
+defaultRedirect: watchlearn/vuerentacar/reservations
+create:
+    redirect: 'watchlearn/vuerentacar/reservations/update/:id'
+    redirectClose: watchlearn/vuerentacar/reservations
+update:
+    redirect: watchlearn/vuerentacar/reservations
+    redirectClose: watchlearn/vuerentacar/reservations

@@ -1,0 +1,6 @@
+plugin:
+    name: 'octobro.api::lang.plugin.name'
+    description: 'octobro.api::lang.plugin.description'
+    author: Octobro
+    icon: oc-icon-code
+    homepage: ''

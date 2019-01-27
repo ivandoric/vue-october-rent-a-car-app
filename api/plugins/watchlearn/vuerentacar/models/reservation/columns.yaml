@@ -1,0 +1,7 @@
+columns:
+    pickup:
+        label: Pickup
+        type: datetime
+    dropoff:
+        label: 'Drop Off'
+        type: datetime

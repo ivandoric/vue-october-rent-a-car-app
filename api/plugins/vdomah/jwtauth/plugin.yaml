@@ -1,0 +1,6 @@
+plugin:
+    name: 'vdomah.jwtauth::lang.plugin.name'
+    description: 'vdomah.jwtauth::lang.plugin.description'
+    author: Vdomah
+    icon: oc-icon-key
+    homepage: 'https://github.com/vdomah/oc-jwtauth'

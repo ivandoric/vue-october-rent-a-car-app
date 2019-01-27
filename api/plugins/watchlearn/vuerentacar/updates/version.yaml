@@ -39,3 +39,15 @@
 1.0.14:
     - 'Created table watchlearn_vuerentacar_vehicles_dates'
     - builder_table_create_watchlearn_vuerentacar_vehicles_dates.php
+1.0.15:
+    - 'Created table watchlearn_vuerentacar_reservations'
+    - builder_table_create_watchlearn_vuerentacar_reservations.php
+1.0.16:
+    - 'Updated table watchlearn_vuerentacar_reservations'
+    - builder_table_update_watchlearn_vuerentacar_reservations.php
+1.0.17:
+    - 'Drop table watchlearn_vuerentacar_reservations'
+    - builder_table_delete_watchlearn_vuerentacar_reservations.php
+1.0.18:
+    - 'Created table watchlearn_vuerentacar_reservations'
+    - builder_table_create_watchlearn_vuerentacar_reservations_2.php

@@ -139,7 +139,7 @@ export default new Vuex.Store({
 
         loginUser({commit, state}, user) {
             axios.post('http://api.vue-rentacar.localhost/api/auth/login', user).then(response => {
-
+                console.log(response)
                 commit('SET_TOKEN', response.data.token)
                 commit('SET_USER', response.data.user)
 
@@ -147,6 +147,21 @@ export default new Vuex.Store({
 
             }).catch(error => {
                 console.log(error.response)
+            })
+        },
+
+        makeReservation({commit, state}, reservationData) {
+
+            const authorization = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.state.token
+                }
+            }
+
+            axios.post('http://api.vue-rentacar.localhost/create-reservation', reservationData, authorization).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(error)
             })
         }
     }

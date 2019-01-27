@@ -408,7 +408,16 @@ class Manager
             /*
              * Look up user
              */
-            if (!$user = $this->createUserModel()->find($id)) {
+            if (!$user = $this->createUserModel()->withTrashed()->find($id)) {
+                return false;
+            }
+
+            // Perform deleted_at check manually since the relevant migrations
+            // might not have been run yet during the update to build 444.
+            // @see https://github.com/octobercms/october/issues/3999
+            if (array_key_exists('deleted_at', $user->getAttributes())
+                && $user->deleted_at !== null
+                && $user->deleted_at->lt(now())) {
                 return false;
             }
 
@@ -510,7 +519,7 @@ class Manager
 
         $this->user = null;
 
-        Session::forget($this->sessionKey);
+        Session::flush();
         Cookie::queue(Cookie::forget($this->sessionKey));
     }
 
