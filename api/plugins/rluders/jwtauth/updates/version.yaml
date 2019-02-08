@@ -28,3 +28,6 @@
     - Fix get user endpoint
 1.2.4:
     - !!! Refresh token changes from PATCH to POST and now requires an data form parameter. Please, check the documentation or the UPDATED Postman collection.
+1.2.5:
+    - Fix the validations issues
+    - Fix issues when using RLuders.Cors Plugin

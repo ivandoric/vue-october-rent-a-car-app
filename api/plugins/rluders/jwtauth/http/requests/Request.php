@@ -5,6 +5,7 @@ namespace RLuders\JWTAuth\Http\Requests;
 use Validator;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request as BaseRequest;
+use RLuders\JWTAuth\Exceptions\JsonValidationException;
 
 abstract class Request extends BaseRequest
 {
@@ -16,17 +17,9 @@ abstract class Request extends BaseRequest
     public function validate()
     {
         $validator = Validator::make($this->data(), $this->rules());
-
         if ($validator->fails()) {
-            return response()->json(
-                [
-                    'error' => $validator->getMessageBag()
-                ],
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+            throw new JsonValidationException($validator);
         }
-
-        return true;
     }
 
     /**

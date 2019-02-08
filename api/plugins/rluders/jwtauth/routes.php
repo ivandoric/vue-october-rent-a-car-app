@@ -3,7 +3,8 @@
 Route::group(
     [
         'prefix' => 'api/auth',
-        'namespace' => 'RLuders\JWTAuth\Http\Controllers'
+        'namespace' => 'RLuders\JWTAuth\Http\Controllers',
+        'middleware' => ['api'],
     ],
     function () {
 

@@ -6,17 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CorsKernel' => $vendorDir . '/barryvdh/laravel-cors/tests/CorsKernel.php',
-    'CorsServiceTest' => $vendorDir . '/barryvdh/laravel-cors/tests/CorsServiceTest.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
-    'GlobalMiddlewareTest' => $vendorDir . '/barryvdh/laravel-cors/tests/GlobalMiddlewareTest.php',
-    'GroupMiddlewareTest' => $vendorDir . '/barryvdh/laravel-cors/tests/GroupMiddlewareTest.php',
     'JSMin' => $vendorDir . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
     'JSMinException' => $vendorDir . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
-    'MockApp' => $vendorDir . '/barryvdh/laravel-cors/tests/CorsServiceTest.php',
-    'OriginMatcherTest' => $vendorDir . '/barryvdh/laravel-cors/tests/OriginMatcherTest.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -456,7 +450,6 @@ return array(
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PluginTestCase' => $baseDir . '/tests/PluginTestCase.php',
-    'PreflightTest' => $vendorDir . '/barryvdh/laravel-cors/tests/PreflightTest.php',
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',

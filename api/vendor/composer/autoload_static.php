@@ -80,7 +80,6 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
         ),
         'L' => 
         array (
-            'League\\Fractal\\' => 15,
             'League\\Flysystem\\' => 17,
             'League\\Csv\\' => 11,
             'Leafo\\ScssPhp\\' => 14,
@@ -122,7 +121,6 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
         ),
         'B' => 
         array (
-            'Barryvdh\\Cors\\' => 14,
             'Backend\\' => 8,
         ),
     );
@@ -250,10 +248,6 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'League\\Fractal\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/fractal/src',
-        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -334,10 +328,6 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
         array (
             0 => __DIR__ . '/../..' . '/modules/cms',
         ),
-        'Barryvdh\\Cors\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barryvdh/laravel-cors/src',
-        ),
         'Backend\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/backend',
@@ -403,17 +393,11 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
     );
 
     public static $classMap = array (
-        'CorsKernel' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/CorsKernel.php',
-        'CorsServiceTest' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/CorsServiceTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
-        'GlobalMiddlewareTest' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/GlobalMiddlewareTest.php',
-        'GroupMiddlewareTest' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/GroupMiddlewareTest.php',
         'JSMin' => __DIR__ . '/..' . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
         'JSMinException' => __DIR__ . '/..' . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
-        'MockApp' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/CorsServiceTest.php',
-        'OriginMatcherTest' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/OriginMatcherTest.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -853,7 +837,6 @@ class ComposerStaticInitc541f6b08440555bb0b657f35b92c195
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PluginTestCase' => __DIR__ . '/../..' . '/tests/PluginTestCase.php',
-        'PreflightTest' => __DIR__ . '/..' . '/barryvdh/laravel-cors/tests/PreflightTest.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

@@ -3,8 +3,11 @@
 use Event;
 use Backend;
 use System\Classes\PluginBase;
+use System\Classes\CombineAssets;
 use RainLab\Builder\Classes\StandardControlsRegistry;
 use RainLab\Builder\Classes\StandardBehaviorsRegistry;
+use RainLab\Builder\Validation\ReservedValidator;
+use Illuminate\Support\Facades\Validator;
 
 class Plugin extends PluginBase
 {
@@ -31,7 +34,7 @@ class Plugin extends PluginBase
     {
         return [
             'rainlab.builder.manage_plugins' => [
-                'tab' => 'rainlab.builder::lang.plugin.name', 
+                'tab' => 'rainlab.builder::lang.plugin.name',
                 'label' => 'rainlab.builder::lang.plugin.manage_plugins']
         ];
     }
@@ -127,5 +130,19 @@ class Plugin extends PluginBase
             new StandardBehaviorsRegistry($behaviorLibrary);
         });
 
+        // Register reserved keyword validation
+        Validator::resolver(function ($translator, $data, $rules, $messages, $customAttributes) {
+            return new ReservedValidator($translator, $data, $rules, $messages, $customAttributes);
+        });
+    }
+
+    public function register()
+    {
+        /*
+         * Register asset bundles
+         */
+        CombineAssets::registerCallback(function ($combiner) {
+            $combiner->registerBundle('$/rainlab/builder/assets/js/build.js');
+        });
     }
 }

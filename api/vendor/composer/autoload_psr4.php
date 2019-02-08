@@ -36,7 +36,6 @@ return array(
     'October\\Rain\\' => array($vendorDir . '/october/rain/src'),
     'October\\Demo\\' => array($baseDir . '/plugins/october/demo'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'League\\Csv\\' => array($vendorDir . '/league/csv/src'),
     'Leafo\\ScssPhp\\' => array($vendorDir . '/leafo/scssphp/src'),
@@ -57,7 +56,6 @@ return array(
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     'Cms\\' => array($baseDir . '/modules/cms'),
-    'Barryvdh\\Cors\\' => array($vendorDir . '/barryvdh/laravel-cors/src'),
     'Backend\\' => array($baseDir . '/modules/backend'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
 );

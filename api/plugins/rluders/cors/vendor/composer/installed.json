@@ -339,12 +339,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/debug.git",
-            "reference": "6eb115e3a56aaad656125270b0a8a33623865759"
+            "reference": "667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/debug/zipball/6eb115e3a56aaad656125270b0a8a33623865759",
-            "reference": "6eb115e3a56aaad656125270b0a8a33623865759",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8",
+            "reference": "667a26c4dd6bc75c67f06bc9bcd015bdecc7cbb8",
             "shasum": ""
         },
         "require": {
@@ -357,7 +357,7 @@
         "require-dev": {
             "symfony/http-kernel": "~2.8|~3.0|~4.0"
         },
-        "time": "2018-12-12T20:57:22+00:00",
+        "time": "2019-01-25T10:19:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -397,12 +397,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "ce83b7b5fc6017f4e8cd1de95e8bda5728efa5da"
+            "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ce83b7b5fc6017f4e8cd1de95e8bda5728efa5da",
-            "reference": "ce83b7b5fc6017f4e8cd1de95e8bda5728efa5da",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ed5be1663fa66623b3a7004d5d51a14c4045399b",
+            "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b",
             "shasum": ""
         },
         "require": {
@@ -422,7 +422,7 @@
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2018-12-17T10:20:13+00:00",
+        "time": "2019-01-16T13:27:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -462,12 +462,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-foundation.git",
-            "reference": "deda9ea8c47b13d2a51e8a9ab40f6c9db67282ce"
+            "reference": "9a81d2330ea255ded06a69b4f7fb7804836e7a05"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/deda9ea8c47b13d2a51e8a9ab40f6c9db67282ce",
-            "reference": "deda9ea8c47b13d2a51e8a9ab40f6c9db67282ce",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/9a81d2330ea255ded06a69b4f7fb7804836e7a05",
+            "reference": "9a81d2330ea255ded06a69b4f7fb7804836e7a05",
             "shasum": ""
         },
         "require": {
@@ -478,7 +478,7 @@
         "require-dev": {
             "symfony/expression-language": "~2.8|~3.0|~4.0"
         },
-        "time": "2018-12-03T10:46:14+00:00",
+        "time": "2019-01-27T09:04:14+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -518,18 +518,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-kernel.git",
-            "reference": "6338fd89f1c30bb384efcdc5463cbd08bed28209"
+            "reference": "798807fdb9bbd3918b58f70cc513fae96246a629"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/http-kernel/zipball/6338fd89f1c30bb384efcdc5463cbd08bed28209",
-            "reference": "6338fd89f1c30bb384efcdc5463cbd08bed28209",
+            "url": "https://api.github.com/repos/symfony/http-kernel/zipball/798807fdb9bbd3918b58f70cc513fae96246a629",
+            "reference": "798807fdb9bbd3918b58f70cc513fae96246a629",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8",
             "psr/log": "~1.0",
-            "symfony/debug": "~2.8|~3.0|~4.0",
+            "symfony/debug": "^3.3.3|~4.0",
             "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
             "symfony/http-foundation": "~3.4.12|~4.0.12|^4.1.1",
             "symfony/polyfill-ctype": "~1.8"
@@ -569,7 +569,7 @@
             "symfony/finder": "",
             "symfony/var-dumper": ""
         },
-        "time": "2018-12-23T14:04:59+00:00",
+        "time": "2019-01-30T11:43:38+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -650,7 +650,7 @@
             },
             {
                 "name": "Gert de Pagter",
-                "email": "BackEndTea@gmail.com"
+                "email": "backendtea@gmail.com"
             }
         ],
         "description": "Symfony polyfill for ctype functions",
