@@ -17,7 +17,9 @@ export default new Vuex.Store({
         pickup: '',
         dropoff: '',
         user: {},
-        token: ''
+        token: '',
+        loginErrors: [],
+        invalidCredentials: ''
     },
     getters: {
         allVehicles: state => state.vehicles,
@@ -27,7 +29,9 @@ export default new Vuex.Store({
         pickupDate: state => state.pickup,
         dropOffDate: state => state.dropoff,
         user: state => state.user,
-        token: state => state.token
+        token: state => state.token,
+        loginErrors: state => state.loginErrors,
+        invalidCredentials: state => state.invalidCredentials,
     },
     mutations: {
         GET_VEHICLES: (state, vehicles) => {
@@ -59,6 +63,12 @@ export default new Vuex.Store({
         },
         SET_TOKEN: (state, token) => {
             state.token = token
+        },
+        SET_LOGIN_ERRORS: (state, loginErrors) => {
+            state.loginErrors = loginErrors
+        },
+        SET_INVALID_CREDENTIALS: (state, invalidCredentials) => {
+            state.invalidCredentials = invalidCredentials
         }
     },
     actions: {
@@ -72,15 +82,15 @@ export default new Vuex.Store({
                 commit('GET_LOCATIONS', response.data)
             })
         },
-        getVehicle({commit, state}, slug) {
+        getVehicle({ commit, state }, slug) {
             const vehicle = this.state.vehicles.find(vehicle => vehicle.slug === slug)
             commit('SET_VEHICLE', vehicle)
         },
-        filterVehicles({commit, state}) {
-            const filtered = state.vehicles.filter( vehicle => {
-                let foundLocations = vehicle.locations.findIndex( location => {
-                    return location.id === this.state.location
-                })
+        filterVehicles({ commit, state }) {
+            const filtered = state.vehicles.filter(vehicle => {
+                const foundLocations = vehicle.locations.findIndex(
+                    location => location.id === this.state.location
+                )
 
                 return foundLocations !== -1
             })
@@ -88,7 +98,7 @@ export default new Vuex.Store({
             const filteredVehicles = []
 
             filtered.forEach(vehicle => {
-                if(vehicle.dates.length > 0) {
+                if (vehicle.dates.length > 0) {
                     const overlaps = []
 
                     vehicle.dates.forEach(date => {
@@ -97,10 +107,10 @@ export default new Vuex.Store({
                         const startDate2 = new Date(this.state.pickup)
                         const endDate2 = new Date(this.state.dropoff)
 
-                        overlaps.push((startDate1 < endDate2) && (startDate2 < endDate1))
+                        overlaps.push(startDate1 < endDate2 && startDate2 < endDate1)
                     })
 
-                    if(!overlaps.includes(true)) {
+                    if (!overlaps.includes(true)) {
                         filteredVehicles.push(vehicle)
                     }
 
@@ -116,12 +126,14 @@ export default new Vuex.Store({
             commit('SET_LOCATION', value)
         },
         filterOnApi({ commit }, value) {
-            axios.get('http://api.vue-rentacar.localhost/vehicles/filter/' + value).then(response => {
-                commit('SET_FILTERED', response.data)
-            })
+            axios
+                .get(`http://api.vue-rentacar.localhost/vehicles/filter/${value}`)
+                .then(response => {
+                    commit('SET_FILTERED', response.data)
+                })
         },
-        setDates({commit, state}, date) {
-            if(date.type === 'pickup') {
+        setDates({ commit, state }, date) {
+            if (date.type === 'pickup') {
                 commit('SET_PICKUP', date.value)
                 localStorage.setItem('pickup', date.value)
                 return
@@ -131,38 +143,66 @@ export default new Vuex.Store({
             localStorage.setItem('dropoff', date.value)
         },
 
-        registerUser({commit, state}, user) {
-            axios.post('http://api.vue-rentacar.localhost/api/auth/register', user).then(response => {
-                console.log(response)
-            })
+        registerUser({ commit, state }, user) {
+            axios
+                .post('http://api.vue-rentacar.localhost/api/auth/register', user)
+                .then(response => {
+                    console.log(response)
+                })
         },
 
-        loginUser({commit, state}, user) {
-            axios.post('http://api.vue-rentacar.localhost/api/auth/login', user).then(response => {
-                console.log(response)
-                commit('SET_TOKEN', response.data.token)
-                commit('SET_USER', response.data.user)
+        loginUser({ commit, state }, user) {
+            axios
+                .post('http://api.vue-rentacar.localhost/api/auth/login', user)
+                .then(response => {
+                    console.log(response)
+                    commit('SET_TOKEN', response.data.token)
+                    commit('SET_USER', response.data.user)
 
-                router.push({name:'Confirmation'})
+                    router.push({ name: 'Confirmation' })
+                })
+                .catch(error => {
+                    commit('SET_INVALID_CREDENTIALS', '')
+                    commit('SET_LOGIN_ERRORS', [])
+                    console.log(error.response)
 
-            }).catch(error => {
-                console.log(error.response)
-            })
+                    if(error.response.data.error) {
+                        commit('SET_INVALID_CREDENTIALS', error.response.data.error)
+                    } else {
+                        const errors = []
+
+                        for (const key of Object.keys(error.response.data.errors)) {
+                            error.response.data.errors[key].forEach(err =>{
+                                errors.push(err)
+                            })
+                        }
+
+                        console.log(errors)
+
+                        commit('SET_LOGIN_ERRORS', errors)
+                    }
+                })
         },
 
-        makeReservation({commit, state}, reservationData) {
-
+        makeReservation({ commit, state }, reservationData) {
             const authorization = {
                 headers: {
-                    'Authorization': 'Bearer ' + this.state.token
+                    Authorization: `Bearer ${this.state.token}`
                 }
             }
 
-            axios.post('http://api.vue-rentacar.localhost/create-reservation', reservationData, authorization).then(response => {
-                console.log(response)
-            }).catch(error => {
-                console.log(error)
-            })
+            axios
+                .post(
+                    'http://api.vue-rentacar.localhost/create-reservation',
+                    reservationData,
+                    authorization
+                )
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 })
