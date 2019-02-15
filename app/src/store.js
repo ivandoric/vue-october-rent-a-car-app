@@ -69,6 +69,9 @@ export default new Vuex.Store({
         },
         SET_INVALID_CREDENTIALS: (state, invalidCredentials) => {
             state.invalidCredentials = invalidCredentials
+        },
+        LOGOUT: (state) => {
+            state.token = ''
         }
     },
     actions: {
@@ -149,6 +152,11 @@ export default new Vuex.Store({
                 .then(response => {
                     console.log(response)
                 })
+        },
+
+        logout({commit}) {
+            commit('LOGOUT')
+            router.push({ name: 'home' })
         },
 
         loginUser({ commit, state }, user) {

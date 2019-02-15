@@ -15,8 +15,19 @@
                 <div class="text-lg lg:flex-grow">
                     <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 text-pink no-underline">Home</router-link>
                     <router-link to="/about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 text-pink no-underline">About</router-link>
+                    <button class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 text-pink no-underline" @click="logout">Logout</button>
                 </div>
             </div>
         </div>
     </nav>
 </template>
+
+<script>
+    export default {
+        methods: {
+            logout() {
+                this.$store.dispatch('logout')
+            }
+        }
+    }
+</script>
